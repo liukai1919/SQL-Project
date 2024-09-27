@@ -2,6 +2,7 @@
 
 ## Project/Goals
 I will practice my SQL skills by answering questions about the data.
+I will also practice my data cleaning skills by cleaning the data.
 
 ## Process
 ### (your step 1)
