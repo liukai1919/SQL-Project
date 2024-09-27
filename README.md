@@ -1,7 +1,7 @@
 # Final-Project-Transforming-and-Analyzing-Data-with-SQL
 
 ## Project/Goals
-(fill in your description and goals here)
+I will practice my SQL skills by answering questions about the data.
 
 ## Process
 ### (your step 1)
