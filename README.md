@@ -1,7 +1,7 @@
 # Final-Project-Transforming-and-Analyzing-Data-with-SQL
 
 ## Project/Goals
-In this project, I will practice my SQL skills by answering questions about the data as well as transforming and cleaning the data.
+In this project, I will practice my SQL skills by answering questions about the data as well as transforming and cleaning the data. I will also ask new questions that interest me about the data.
 
 ## Process
 ### (your step 1)
