@@ -77,7 +77,7 @@ FROM
     on als.fullvisitorid = ana.fullvisitorid and als.visitid = ana.visitid
 WHERE
 	ana.pageviews IS NOT NULL 
-	AND productquantity IS NULL 
+	AND ana.units_sold IS NULL 
 ORDER BY
 	ana.pageviews DESC
 ```
