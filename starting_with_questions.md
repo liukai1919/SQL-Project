@@ -61,6 +61,7 @@ Answer:
 I found two solutions for this question, one for city and one for country, I can either use the sales_report table or the sales_by_sku table to join with the all_sessions table. 
 the results are the same for both city and country.
 results:
+
 each city:
 | #  | avg_total_ordered | city                    |      
 |----|-------------------|-------------------------|
@@ -74,7 +75,9 @@ each city:
 | 8  | 130               | Rome                    |
 | 9  | 105               | Kalamazoo               |
 | 10 | 100               | Avon                    |
+
 each country:
+
 | #  | avg_total_ordered | country           |
 |----|-------------------|-------------------|
 | 1  | 135               | Saudi Arabia      |
