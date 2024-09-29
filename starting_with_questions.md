@@ -165,26 +165,72 @@ Answer:
 SQL Queries:
 ```SQL
 -- channelgrouping each city
-select channelgrouping,count(*) as num_groups, city from all_sessions 
-where city not in ('(not set)','not available in demo dataset') and productquantity != 0 
-group by city, channelgrouping
-order by city,num_groups desc;
+SELECT
+	channelgrouping,
+	COUNT ( * ) AS num_groups,
+	city 
+FROM
+	all_sessions 
+WHERE
+	city NOT IN ( '(not set)', 'not available in demo dataset' ) 
+	AND productquantity != 0 
+GROUP BY
+	city,
+	channelgrouping 
+ORDER BY
+	city,
+	num_groups DESC;
 -- channelgrouping each country
-select channelgrouping,count(*) as num_groups, country from all_sessions join products p 
-on all_sessions.productsku = p.sku
-where country not in ('(not set)','not available in demo dataset') and productquantity != 0 
-group by  country, channelgrouping
-order by country,num_groups desc;
+SELECT
+	channelgrouping,
+	COUNT ( * ) AS num_groups,
+	country 
+FROM
+	all_sessions
+	JOIN products P ON all_sessions.productsku = P.sku 
+WHERE
+	country NOT IN ( '(not set)', 'not available in demo dataset' ) 
+	AND productquantity != 0 
+GROUP BY
+	country,
+	channelgrouping 
+ORDER BY
+	country,
+	num_groups DESC;
 -- productcategory each city
-select  v2productcategory,count(*) as num_groups, city, round(avg(productprice/ 1000000),2) as avgprice from all_sessions 
-where city not in ('(not set)','not available in demo dataset') and productquantity != 0 
-group by city, v2productcategory
-order by city, num_groups desc;
+SELECT
+	v2productcategory,
+	COUNT ( * ) AS num_groups,
+	city,
+	round( AVG ( productprice / 1000000 ), 2 ) AS avgprice 
+FROM
+	all_sessions 
+WHERE
+	city NOT IN ( '(not set)', 'not available in demo dataset' ) 
+	AND productquantity != 0 
+GROUP BY
+	city,
+	v2productcategory 
+ORDER BY
+	city,
+	num_groups DESC;
 -- productcategory each country
-select v2productcategory,count(*) as num_groups, country,round(avg(productprice/ 1000000),2) as avgprice from all_sessions 
-where country not in ('(not set)','not available in demo dataset') and productquantity != 0 
-group by  country, v2productcategory
-order by country,num_groups desc;
+SELECT
+	v2productcategory,
+	COUNT ( * ) AS num_groups,
+	country,
+	round( AVG ( productprice / 1000000 ), 2 ) AS avgprice 
+FROM
+	all_sessions 
+WHERE
+	country NOT IN ( '(not set)', 'not available in demo dataset' ) 
+	AND productquantity != 0 
+GROUP BY
+	country,
+	v2productcategory 
+ORDER BY
+	country,
+	num_groups DESC;
 ```
 
 Answer:
@@ -200,21 +246,33 @@ SQL Queries:
 ```SQL
 
 WITH RankedProducts AS (
-    SELECT
-        country,
-        city,
-        v2productname,
-        v2productcategory,
-        units_sold,
-        ROW_NUMBER() OVER (PARTITION BY country, city ORDER BY units_sold DESC) AS rank
-    FROM  (select distinct * from analytics where units_sold !=0) as a join all_sessions as als on a.visitid = als.visitid and a.fullvisitorid = als.fullvisitorid 
-    where city not in ('(not set)','not available in demo dataset') 
-)
--- top selling product from each city/country
-SELECT country, city,v2productname,v2productcategory,units_sold
-FROM RankedProducts
-WHERE rank = 1 
-ORDER BY country, city;
+	SELECT
+		country,
+		city,
+		v2productname,
+		v2productcategory,
+		units_sold,
+		ROW_NUMBER ( ) OVER ( PARTITION BY country, city ORDER BY units_sold DESC ) AS RANK 
+	FROM
+		( SELECT DISTINCT * FROM analytics WHERE units_sold != 0 )
+		AS A JOIN all_sessions AS als ON A.visitid = als.visitid 
+		AND A.fullvisitorid = als.fullvisitorid 
+	WHERE
+		city NOT IN ( '(not set)', 'not available in demo dataset' ) 
+	) -- top selling product from each city/country
+SELECT
+	country,
+	city,
+	v2productname,
+	v2productcategory,
+	units_sold 
+FROM
+	RankedProducts 
+WHERE
+	RANK = 1 
+ORDER BY
+	country,
+	city;
 
 ```
 
@@ -264,21 +322,34 @@ Most security cameras sold to California, which means the public safety in Calif
 SQL Queries:
 ```SQL
 WITH RankedProducts AS (
-    SELECT
-        country,
-        city,
-        v2productname,
-        v2productcategory,
-        round(productPrice/1000000 * units_sold,2) as revenue,
-        units_sold,
-        ROW_NUMBER() OVER (PARTITION BY country, city ORDER BY units_sold DESC) AS rank
-    FROM (select distinct * from analytics where units_sold !=0) as a join all_sessions as als on a.visitid = als.visitid and a.fullvisitorid = als.fullvisitorid
-    where city not in ('(not set)','not available in demo dataset')
-)
-SELECT country, city, v2productname,v2productcategory,revenue, units_sold
-FROM RankedProducts
-WHERE rank = 1 and revenue > 0
-ORDER BY revenue DESC;
+	SELECT
+		country,
+		city,
+		v2productname,
+		v2productcategory,
+		round( productPrice / 1000000 * units_sold, 2 ) AS revenue,
+		units_sold,
+		ROW_NUMBER ( ) OVER ( PARTITION BY country, city ORDER BY units_sold DESC ) AS RANK 
+	FROM
+		( SELECT DISTINCT * FROM analytics WHERE units_sold != 0 )
+		AS A JOIN all_sessions AS als ON A.visitid = als.visitid 
+		AND A.fullvisitorid = als.fullvisitorid 
+	WHERE
+		city NOT IN ( '(not set)', 'not available in demo dataset' ) 
+	) SELECT
+	country,
+	city,
+	v2productname,
+	v2productcategory,
+	revenue,
+	units_sold 
+FROM
+	RankedProducts 
+WHERE
+	RANK = 1 
+	AND revenue > 0 
+ORDER BY
+	revenue DESC;
 ```
 
 
