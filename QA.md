@@ -1,7 +1,13 @@
 #What are your risk areas? Identify and describe them.
-The first risk area is to import the data from csv to postgreSql. I need to make sure the data is imported correctly. For example, when I import all_sessions table and analytics table, the date column is not imported correctly.I choose date as the data type of date column, but the date column in the csv file is in the format of yyyymmdd. Once imported, the date only shows month and day. So I need to convet date column's data type to varchar in order to make sure the date is imported correctly.
-Once I finish the import, I found that there are tons of null values in the tables. null values could cause errors and affect the analysis. So I need to clean the data and filter out the null values. In another hand, duplicate rows could also cause errors, affect the analysis and slow down the query. Moreover, I need to filter out the nunsence data such as "not set", "not available in demo dataset" in city and country columns. It is also worth to check if there are any negetive values in the tables, because they may cause errors in the analysis(luckly, there is no negetive values in the tables).
-After the data cleaning, I have to check the data type of each column and make sure they are correct. For example, the date column is in the format of varchar, I need to convert it to the correct format in order to make sure it can be used in the analysis.
+
+The first area of concern is importing data from CSV into PostgreSQL. Ensuring correct data import is crucial. For example, when importing the `all_sessions` and `analytics` tables, I noticed that the `date` column wasn't imported correctly. Although I selected `DATE` as the data type, the CSV file stored dates in the `YYYYMMDD` format. As a result, after import, only the month and day were displayed. To resolve this, I had to change the data type of the `date` column to `VARCHAR` to ensure the date was imported correctly.
+
+Once the import was complete, I discovered numerous `NULL` values in the tables. These `NULL` values could cause errors and distort the analysis, so I needed to clean the data by filtering out `NULL` entries. Additionally, duplicate rows can lead to errors, impact analysis accuracy, and slow down queries. 
+
+It's also important to filter out irrelevant data, such as entries with "not set" or "not available in demo dataset" in the `city` and `country` columns. Moreover, I checked for negative values, as they can also affect the analysis (fortunately, no negative values were found in the tables).
+
+After data cleaning, I reviewed the data types of each column to ensure correctness. For example, the `date` column, which was initially stored as `VARCHAR`, needed to be converted back to the appropriate date format to be usable in analysis.
+
 
 QA Process:
 Describe your QA process and include the SQL queries used to execute it.
