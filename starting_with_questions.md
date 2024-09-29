@@ -354,6 +354,40 @@ ORDER BY
 
 
 Answer:
+| #  | country        | city            | v2productname                                        | v2productcategory                               | revenue | units_sold |
+|----|----------------|-----------------|-----------------------------------------------------|------------------------------------------------|---------|------------|
+| 1  | United States  | Chicago         | Google Alpine Style Backpack                         | Home/Shop by Brand/                            | 2999.70 | 30         |
+| 2  | United States  | Mountain View   | Grip Highlighter Pen 3 Pack                         | Home/Spring Sale!/                             | 249.50  | 50         |
+| 3  | United States  | New York        | Nest® Protect Smoke + CO White Wired Alarm-USA      | Home/Nest/Nest-USA/                            | 238.00  | 2          |
+| 4  | United States  | Seattle         | Nest® Cam Indoor Security Camera - USA              | Home/Nest/Nest-USA/                            | 238.00  | 2          |
+| 5  | United States  | Palo Alto       | Nest® Learning Thermostat 3rd Gen-USA - White      | Nest-USA                                       | 149.00  | 1          |
+| 6  | Canada         | Toronto         | Android Stretch Fit Hat Black                        | Home/Apparel/Headgear/                        | 109.95  | 5          |
+| 7  | Ireland        | Dublin          | Google Laptop Backpack                               | Home/Bags/                                     | 99.99   | 1          |
+| 8  | United States  | San Francisco   | Google Women's Scoop Neck Tee White                  | Home/Apparel/Women's/Women's-T-Shirts/       | 63.96   | 4          |
+| 9  | United States  | Pittsburgh      | YouTube Hard Cover Journal                           | Home/Office/Notebooks & Journals/              | 59.96   | 4          |
+| 10 | United States  | Austin          | Google Men's Airflow 1/4 Zip Pullover Black        | Home/Apparel/Men's/Men's-Performance Wear/    | 55.99   | 1          |
+| 11 | Hong Kong      | Hong Kong       | Android Men's Long Sleeve Badge Crew Tee Heather    | Home/Apparel/Men's/Men's-T-Shirts/            | 34.99   | 1          |
+| 12 | United States  | Atlanta         | Android Men's Vintage Henley                         | Home/Apparel/Men's/Men's-T-Shirts/            | 29.99   | 1          |
+| 13 | United States  | San Bruno       | Large Zipper Top Tote Bag                            | Home/Bags/                                     | 27.99   | 1          |
+| 14 | Colombia       | Bogota          | YouTube Men's 3/4 Sleeve Henley                     | Home/Apparel/Men's/Men's-T-Shirts/            | 24.99   | 1          |
+| 15 | Thailand       | Bangkok         | 26 oz Double Wall Insulated Bottle                   | Home/Drinkware/                                 | 24.99   | 1          |
+| 16 | Switzerland    | Zurich          | YouTube Men's 3/4 Sleeve Henley                     | Home/Apparel/Men's/Men's-T-Shirts/            | 24.99   | 1          |
+| 17 | Israel         | Tel Aviv-Yafo   | Google Men's Vintage Tank                            | Home/Apparel/Men's/Men's-T-Shirts/            | 20.99   | 1          |
+| 18 | United States  | Ann Arbor       | Google Men's Vintage Badge Tee Black                 | Home/Apparel/Men's/Men's-T-Shirts/            | 18.99   | 1          |
+| 19 | France         | Paris           | Android Lunch Kit                                   | Home/Shop by Brand/Android/                    | 17.99   | 1          |
+| 20 | Singapore      | Singapore       | Google Men's Short Sleeve Performance Badge Tee Navy  | (not set)                                      | 17.59   | 1          |
+| 21 | United States  | Washington      | Google Bib White                                    | Home/Apparel/Kid's/Kid's-Infant/              | 11.99   | 1          |
+| 22 | Germany        | Munich          | Google Twill Cap                                    | Home/Apparel/Headgear/                        | 10.99   | 1          |
+| 23 | United States  | Houston         | Google Sunglasses                                   | ${escCatTitle}                                 | 10.50   | 3          |
+| 24 | United States  | Sunnyvale       | SPF-15 Slim & Slender Lip Balm                      | Housewares                                      | 8.40    | 6          |
+| 25 | United States  | Dallas          | YouTube Leatherette Notebook Combo                  | Home/Shop by Brand/YouTube/                    | 6.99    | 1          |
+| 26 | Chile          | Santiago        | Sport Bag                                          | Home/Bags/                                     | 4.99    | 1          |
+| 27 | India          | Hyderabad       | Keyboard DOT Sticker                                 | Home/Accessories/Stickers/                     | 3.00    | 2          |
+| 28 | United Kingdom  | London          | Android Sticker Sheet Ultra Removable               | (not set)                                      | 2.99    | 1          |
+| 29 | Germany        | Berlin          | Google Doodle Decal                                 | Home/Office/                                   | 2.99    | 1          |
+| 30 | United States  | Detroit         | Google 22 oz Water Bottle                           | Drinkware                                       | 2.99    | 1          |
+| 31 | United States  | Kirkland        | Android Sticker Sheet Ultra Removable               | Home/Office/                                   | 2.99    | 1          |
+
 According to the data, I believe that the factors that affects the revenue are location and imcome level, top 15 highest revenue are mostly from america. If we take a look on top 20 cities with highest revenue, we can find that They are most from developed countries, even though some few counties are not developed, their cities are all capital cities which means their imcome level is high.
 
 
