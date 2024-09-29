@@ -4,7 +4,8 @@ What issues will you address by cleaning the data?
 3. There are some total_ordered values that are 0, I will remove them. 
 4. Check if there are any total_ordered values that are negative, if there are, I will remove them. 
 5. There are two productskus in sales_by_sku table that can not match products table, all_sessions table and sals_report table, I will remove it.
-6. There are 46 productsku in all_sessions table that productprice is 0 and sales_report' total_ordered is 0 as well sales_by_sku table, I will remove them.
+6. There are some some rows in all_sessions table and analytics table that that don't sold anything, I will filter them out.
+
 
 
 
@@ -21,5 +22,5 @@ Below, provide the SQL queries you used to clean your data.
     delete from sales_by_sku where productsku in (
         select productsku from sales_by_sku where productsku not in (select DISTINCT sku from products) and total_ordered > 0
     )
-6.
+6. SELECT DISTINCT * FROM analytics WHERE units_sold != 0
 ```

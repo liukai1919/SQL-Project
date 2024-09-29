@@ -234,7 +234,7 @@ ORDER BY
 ```
 
 Answer:
-The US has the most orders with "Referral" channel, which means influencers' job worked. The US also paid more aveage price than other countries.
+The US has the most orders with "Referral" channel, which means the influencer economy is a new trend in the United States. The average transaction value in the U.S. market is higher.
 
 
 
@@ -259,7 +259,8 @@ WITH RankedProducts AS (
 		AND A.fullvisitorid = als.fullvisitorid 
 	WHERE
 		city NOT IN ( '(not set)', 'not available in demo dataset' ) 
-	) -- top selling product from each city/country
+	) 
+-- top selling product from each city/country
 SELECT
 	country,
 	city,
