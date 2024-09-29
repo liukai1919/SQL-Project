@@ -20,8 +20,9 @@ Answer:
 
 **Question 2: What is the average number of products ordered from visitors in each city and country?**
 
-```SQL
+
 SQL Queries:
+```SQL
 select round(avg(total_ordered),0) as avg_total_ordered, city, country from sales_report
 join all_sessions on sales_report.productsku = all_sessions.productsku
 where city not in ('(not set)','not available in demo dataset')
