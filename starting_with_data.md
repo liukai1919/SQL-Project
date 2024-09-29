@@ -8,7 +8,7 @@ SELECT
 	units_sold,
 	channelgrouping 
 FROM
-	( SELECT DISTINCT timeonsite, units_sold, channelgrouping FROM analytics where units_sold is not null ) 
+	( SELECT DISTINCT timeonsite, units_sold, channelgrouping FROM analytics where units_sold is not null )  -- speed up the query
 WHERE
 	timeonsite IS NOT NULL 
 ORDER BY
@@ -39,7 +39,7 @@ SELECT
 	pageviews,
 	SUM ( units_sold ) AS sum_solds 
 FROM
-	( SELECT DISTINCT pageviews, units_sold FROM analytics ) 
+	( SELECT DISTINCT pageviews, units_sold FROM analytics )  -- speed up the query
 WHERE
 	pageviews IS NOT NULL 
 GROUP BY
@@ -73,7 +73,8 @@ SELECT
 distinct v2productname as productname,
 	ana.pageviews 
 FROM
-	all_sessions als join (select * from analytics where units_sold is null) as ana on als.fullvisitorid = ana.fullvisitorid and als.visitid = ana.visitid
+	all_sessions als join (select * from analytics where units_sold is null) as ana -- speed up the query
+    on als.fullvisitorid = ana.fullvisitorid and als.visitid = ana.visitid
 WHERE
 	ana.pageviews IS NOT NULL 
 	AND productquantity IS NULL 

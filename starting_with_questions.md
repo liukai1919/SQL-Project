@@ -252,7 +252,7 @@ WITH RankedProducts AS (
 		v2productname,
 		v2productcategory,
 		units_sold,
-		ROW_NUMBER ( ) OVER ( PARTITION BY country, city ORDER BY units_sold DESC ) AS RANK 
+		ROW_NUMBER ( ) OVER ( PARTITION BY country, city ORDER BY units_sold DESC ) AS RANK  -- rank the products sold
 	FROM
 		( SELECT DISTINCT * FROM analytics WHERE units_sold != 0 )
 		AS A JOIN all_sessions AS als ON A.visitid = als.visitid 
@@ -270,7 +270,7 @@ SELECT
 FROM
 	RankedProducts 
 WHERE
-	RANK = 1 
+	RANK = 1  -- get the top 1 product sold
 ORDER BY
 	country,
 	city;
@@ -330,7 +330,7 @@ WITH RankedProducts AS (
 		v2productcategory,
 		round( productPrice / 1000000 * units_sold, 2 ) AS revenue,
 		units_sold,
-		ROW_NUMBER ( ) OVER ( PARTITION BY country, city ORDER BY units_sold DESC ) AS RANK 
+		ROW_NUMBER ( ) OVER ( PARTITION BY country, city ORDER BY units_sold DESC ) AS RANK -- rank the products sold
 	FROM
 		( SELECT DISTINCT * FROM analytics WHERE units_sold != 0 )
 		AS A JOIN all_sessions AS als ON A.visitid = als.visitid 
@@ -347,7 +347,7 @@ WITH RankedProducts AS (
 FROM
 	RankedProducts 
 WHERE
-	RANK = 1 
+	RANK = 1 -- get the top 1 product sold
 	AND revenue > 0 
 ORDER BY
 	revenue DESC;
