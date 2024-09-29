@@ -203,7 +203,7 @@ ORDER BY revenue DESC;
 
 
 Answer:
-According to the data, I believe that the factor that affects the revenue is location, top 15 highest revenue are all from america(except Dublin). If we take a look on top 20 cities with highest revenue, we can find that They are most from developed countries, even though some few counties are not developed, their cities are all capital cities which means their imcome level is high.
+According to the data, I believe that the factors that affects the revenue are location and imcome level, top 15 highest revenue are all from america(except Dublin). If we take a look on top 20 cities with highest revenue, we can find that They are most from developed countries, even though some few counties are not developed, their cities are all capital cities which means their imcome level is high.
 
 
 
