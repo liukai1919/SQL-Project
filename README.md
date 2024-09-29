@@ -1,21 +1,35 @@
-# Final-Project-Transforming-and-Analyzing-Data-with-SQL
+# Final Project: Transforming and Analyzing Data with SQL
 
-## Project/Goals
-In this project, I will practice my SQL skills by answering questions about the data as well as transforming and cleaning the data. I will also ask new questions that interest me about the data.
+## Project Goals
+The goal of this project is to practice my SQL skills by answering data-related questions, performing data transformations, and cleaning messy data. Additionally, I will explore new questions that arise during the process.
 
-## Process
-### 1. import data from csv to postgresSQL
-### 2. understand the data such as the number of tables, the number of columns, the data type of each column, and the relationship between tables.
-### 3. Answer the questions
-### 4. During the process, I cleaned the data to make it more accurate and consistent.
-### 5. Ask new questions about the data
-### 6. Summarize the results
+## Process Overview
+
+1. **Import Data**: Imported data from CSV files into PostgreSQL.
+2. **Explore the Data**: Analyzed the structure of the dataset, including the number of tables, columns, data types, and relationships between the tables.
+3. **Answer Questions**: Used SQL queries to answer predefined questions about the data.
+4. **Data Cleaning**: Cleaned and transformed the data to ensure accuracy and consistency.
+5. **Ask New Questions**: Formulated and answered additional questions of interest.
+6. **Summarize Results**: Summarized key findings based on the analysis.
 
 ## Results
-Summary of the results: The top sales are from developed countries, and most of them are from North America and Europe. the time of visitor spend on site doesn't necessary means they will buy more products. Moreover, the number of pageviews doesn't necessary means they will buy more products as well. The bigest impact factor on the number of products sold is the location of the visitor, the more developed the country is, the more products are sold.
+
+### Key Insights:
+- The majority of top sales are from developed countries, predominantly in North America and Europe.
+- Time spent on the site by visitors does not necessarily correlate with higher product purchases.
+- The number of page views also does not strongly influence product sales.
+- The most significant factor affecting product sales is the visitor's location. Visitors from more developed countries tend to purchase more products.
 
 ## Challenges 
-The biggest challenge is the data cleaning. The data is very messy and inconsistent. I spent a lot of time on it to make the data more accurate and consistent. Expacially the analytics table, The sql process time is very long without using some optimization techniques. Such as using filter to reduce the number of rows in the table, choose specific columns to reduce the data size, and using some aggregate functions to reduce the number of rows in the table.
+
+The biggest challenge was cleaning the data, which was very messy and inconsistent. This required significant effort to ensure accuracy and consistency, especially for the `analytics` table. 
+
+### SQL Optimization:
+The SQL processing time was initially very slow. I implemented optimization techniques such as:
+- Filtering data to reduce the number of rows.
+- Selecting specific columns to minimize data size.
+- Using aggregate functions to condense the dataset.
 
 ## Future Goals
-If I had more time, I would find some visualization tools for postgreSql to make the data more intuitive.
+
+If I had more time, I would explore visualization tools for PostgreSQL to make the analysis more intuitive and visually appealing.
