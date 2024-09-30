@@ -1,26 +1,51 @@
-What issues will you address by cleaning the data?
-1. Remove the "(not set)" and "not available in demo dataset" values from the city and country columns.
-2. Round the transaction revenue to 2 decimal places. 
-3. There are some total_ordered values that are 0, I will remove them. 
-4. Check if there are any total_ordered values that are negative, if there are, I will remove them. 
-5. There are two productskus in sales_by_sku table that can not match products table, all_sessions table and sals_report table, I will remove it.
-6. There are some some rows in all_sessions table and analytics table that that don't sold anything, I will filter them out.
+## Data Cleaning Issues to Address
 
+1. **Remove Invalid City and Country Values**: Filter out rows where the `city` or `country` columns contain `"(not set)"` or `"not available in demo dataset"`.
+2. **Round Transaction Revenue**: Ensure the `transaction_revenue` values are rounded to two decimal places for better readability and accuracy.
+3. **Remove Zero `total_ordered` Values**: Rows where `total_ordered` is 0 represent no sales, and should be removed from the analysis.
+4. **Remove Negative `total_ordered` Values**: Check for any negative values in `total_ordered` and remove them as they represent incorrect data.
+5. **Remove Unmatched Product SKUs**: There are two SKUs in the `sales_by_sku` table that do not match any entries in the `products`, `all_sessions`, or `sales_report` tables, and these should be removed.
+6. **Filter Out Rows with No Sales**: Some rows in the `all_sessions` and `analytics` tables represent sessions where no sales were made. These should be filtered out for relevant analysis.
 
+## SQL Queries Used for Data Cleaning
 
+```sql
+-- 1. Remove rows with invalid city or country values
+SELECT * FROM all_sessions 
+WHERE city IN ('(not set)', 'not available in demo dataset') 
+OR country IN ('(not set)', 'not available in demo dataset');
 
-Queries:
-Below, provide the SQL queries you used to clean your data.
-```SQL
-1. select * fromm all_sessions where city in ('(not set)','not available in demo dataset');
-2. select round(sum(productprice/1000000),2) as transactionrevenue from all_sessions;
-3. select * from all_sessions where total_ordered = 0;
-4. select * from all_sessions where total_ordered < 0;
-5. select * from all_sessions where productsku in (
-    select productsku from sales_by_sku where productsku not in (select DISTINCT sku from products) and total_ordered > 0
-    )
-    delete from sales_by_sku where productsku in (
-        select productsku from sales_by_sku where productsku not in (select DISTINCT sku from products) and total_ordered > 0
-    )
-6. SELECT DISTINCT * FROM analytics WHERE units_sold != 0
+-- 2. Round transaction revenue to two decimal places
+SELECT ROUND(SUM(productprice/1000000), 2) AS transactionrevenue 
+FROM all_sessions;
+
+-- 3. Identify rows where total_ordered is 0
+SELECT * FROM all_sessions 
+WHERE total_ordered = 0;
+
+-- 4. Identify rows with negative total_ordered values
+SELECT * FROM all_sessions 
+WHERE total_ordered < 0;
+
+-- 5. Identify and delete unmatched product SKUs from sales_by_sku table
+-- First, find the unmatched SKUs
+SELECT productsku 
+FROM sales_by_sku 
+WHERE productsku NOT IN (SELECT DISTINCT sku FROM products) 
+AND total_ordered > 0;
+
+-- Delete the unmatched SKUs from sales_by_sku table
+DELETE FROM sales_by_sku 
+WHERE productsku IN (
+    SELECT productsku 
+    FROM sales_by_sku 
+    WHERE productsku NOT IN (SELECT DISTINCT sku FROM products) 
+    AND total_ordered > 0
+);
+
+-- 6. Filter out rows where no units were sold from the analytics table
+SELECT DISTINCT * 
+FROM analytics 
+WHERE units_sold != 0;
+
 ```
